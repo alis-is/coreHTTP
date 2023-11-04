@@ -738,16 +738,18 @@ HTTPStatus_t HTTPClient_AddRangeHeader( HTTPRequestHeaders_t * pRequestHeaders,
 /* @[declare_httpclient_addrangeheader] */
 
 /* @[declare_httpclient_sendhttpheaders] */
-HTTPStatus_t HTTPClient_SendHttpHeaders( const TransportInterface_t* pTransport,
-                                                 HTTPClient_GetCurrentTimeFunc_t getTimestampMs,
-                                                 HTTPRequestHeaders_t* pRequestHeaders, size_t reqBodyLen,
-                                                 uint32_t sendFlags);
+HTTPStatus_t HTTPClient_SendHttpHeaders( const TransportInterface_t * pTransport,
+                                         HTTPClient_GetCurrentTimeFunc_t getTimestampMs,
+                                         HTTPRequestHeaders_t * pRequestHeaders,
+                                         size_t reqBodyLen,
+                                         uint32_t sendFlags );
 /* @[declare_httpclient_sendhttpheaders] */
 
 /* @[declare_httpclient_sendhttpdata] */
-HTTPStatus_t HTTPClient_SendHttpData( const TransportInterface_t* pTransport,
-                                              HTTPClient_GetCurrentTimeFunc_t getTimestampMs, const uint8_t* pData,
-                                              size_t dataLen);
+HTTPStatus_t HTTPClient_SendHttpData( const TransportInterface_t * pTransport,
+                                      HTTPClient_GetCurrentTimeFunc_t getTimestampMs,
+                                      const uint8_t * pData,
+                                      size_t dataLen );
 /* @[declare_httpclient_sendhttpdata] */
 
 /**
@@ -853,9 +855,9 @@ HTTPStatus_t HTTPClient_Send( const TransportInterface_t * pTransport,
 /* @[declare_httpclient_send] */
 
 /* @[declare_httpclient_receiveandparsehttpresponse] */
-HTTPStatus_t HTTPClient_ReceiveAndParseHttpResponse( const TransportInterface_t* pTransport,
-                                                     HTTPResponse_t* pResponse,
-                                                     const HTTPRequestHeaders_t* pRequestHeaders);
+HTTPStatus_t HTTPClient_ReceiveAndParseHttpResponse( const TransportInterface_t * pTransport,
+                                                     HTTPResponse_t * pResponse,
+                                                     const HTTPRequestHeaders_t * pRequestHeaders );
 /* @[declare_httpclient_receiveandparsehttpresponse] */
 
 /**
