@@ -209,10 +209,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:af91c4a57452556db2be926743aa02b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the byte range request header to the request headers store in <a class="el" href="struct_h_t_t_p_request_headers__t.html#acaffc0e3ae5413bf7c673f83388bc7c6" title="Buffer to hold the raw HTTP request headers.">HTTPRequestHeaders_t.pBuffer</a>.  <br /></td></tr>
 <tr class="separator:af91c4a57452556db2be926743aa02b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2e18f2e1c8ad16e78754368663e77ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__http__enum__types.html#ga39fad9050063a355ffd95e95381e743f">HTTPStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core__http__client_8h.html#ac2e18f2e1c8ad16e78754368663e77ed">HTTPClient_SendHttpHeaders</a> (const <a class="el" href="struct_transport_interface__t.html">TransportInterface_t</a> *pTransport, <a class="el" href="group__http__callback__types.html#ga32d6894c1c9d62568136203b57c6d796">HTTPClient_GetCurrentTimeFunc_t</a> getTimestampMs, <a class="el" href="struct_h_t_t_p_request_headers__t.html">HTTPRequestHeaders_t</a> *pRequestHeaders, size_t reqBodyLen, uint32_t sendFlags)</td></tr>
-<tr class="memdesc:ac2e18f2e1c8ad16e78754368663e77ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the HTTP headers over the transport send interface.  <br /></td></tr>
+<tr class="memdesc:ac2e18f2e1c8ad16e78754368663e77ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the request headers in <code>pRequestHeaders</code> over the transport.  <br /></td></tr>
 <tr class="separator:ac2e18f2e1c8ad16e78754368663e77ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af482c62724018d1d4ebf4de4745c492c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__http__enum__types.html#ga39fad9050063a355ffd95e95381e743f">HTTPStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core__http__client_8h.html#af482c62724018d1d4ebf4de4745c492c">HTTPClient_SendHttpData</a> (const <a class="el" href="struct_transport_interface__t.html">TransportInterface_t</a> *pTransport, <a class="el" href="group__http__callback__types.html#ga32d6894c1c9d62568136203b57c6d796">HTTPClient_GetCurrentTimeFunc_t</a> getTimestampMs, const uint8_t *pData, size_t dataLen)</td></tr>
-<tr class="memdesc:af482c62724018d1d4ebf4de4745c492c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send HTTP bytes over the transport send interface.  <br /></td></tr>
+<tr class="memdesc:af482c62724018d1d4ebf4de4745c492c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the request body in <code>pRequestBodyBuf</code> over the transport.  <br /></td></tr>
 <tr class="separator:af482c62724018d1d4ebf4de4745c492c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa33b3334128496487d820f0da7ae5601"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__http__enum__types.html#ga39fad9050063a355ffd95e95381e743f">HTTPStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core__http__client_8h.html#aa33b3334128496487d820f0da7ae5601">HTTPClient_Send</a> (const <a class="el" href="struct_transport_interface__t.html">TransportInterface_t</a> *pTransport, <a class="el" href="struct_h_t_t_p_request_headers__t.html">HTTPRequestHeaders_t</a> *pRequestHeaders, const uint8_t *pRequestBodyBuf, size_t reqBodyBufLen, <a class="el" href="struct_h_t_t_p_response__t.html">HTTPResponse_t</a> *pResponse, uint32_t sendFlags)</td></tr>
 <tr class="memdesc:aa33b3334128496487d820f0da7ae5601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the request headers in <a class="el" href="struct_h_t_t_p_request_headers__t.html#acaffc0e3ae5413bf7c673f83388bc7c6" title="Buffer to hold the raw HTTP request headers.">HTTPRequestHeaders_t.pBuffer</a> and request body in <code>pRequestBodyBuf</code> over the transport. The response is received in <a class="el" href="struct_h_t_t_p_response__t.html#a8198002b2a936b784cd791560c1a3ca8" title="Buffer for both the raw HTTP header and body.">HTTPResponse_t.pBuffer</a>.  <br /></td></tr>
@@ -296,7 +296,7 @@ Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line">httpLibraryStatus = <a class="code hl_function" href="core__http__client_8c.html#ab523c4d4e3b756928d463bd864361a9c">HTTPClient_InitializeRequestHeaders</a>( &amp;requestHeaders,</div>
 <div class="line">                                                         &amp;requestInfo );</div>
-<div class="ttc" id="acore__http__client_8c_html_ab523c4d4e3b756928d463bd864361a9c"><div class="ttname"><a href="core__http__client_8c.html#ab523c4d4e3b756928d463bd864361a9c">HTTPClient_InitializeRequestHeaders</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_InitializeRequestHeaders(HTTPRequestHeaders_t *pRequestHeaders, const HTTPRequestInfo_t *pRequestInfo)</div><div class="ttdoc">Initialize the request headers, stored in HTTPRequestHeaders_t.pBuffer, with initial configurations f...</div><div class="ttdef"><b>Definition:</b> core_http_client.c:1577</div></div>
+<div class="ttc" id="acore__http__client_8c_html_ab523c4d4e3b756928d463bd864361a9c"><div class="ttname"><a href="core__http__client_8c.html#ab523c4d4e3b756928d463bd864361a9c">HTTPClient_InitializeRequestHeaders</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_InitializeRequestHeaders(HTTPRequestHeaders_t *pRequestHeaders, const HTTPRequestInfo_t *pRequestInfo)</div><div class="ttdoc">Initialize the request headers, stored in HTTPRequestHeaders_t.pBuffer, with initial configurations f...</div><div class="ttdef"><b>Definition:</b> core_http_client.c:1542</div></div>
 <div class="ttc" id="agroup__http__constants_html_ga91faefe43f8d3577719ba174c8a5ebcd"><div class="ttname"><a href="group__http__constants.html#ga91faefe43f8d3577719ba174c8a5ebcd">HTTP_METHOD_GET</a></div><div class="ttdeci">#define HTTP_METHOD_GET</div><div class="ttdef"><b>Definition:</b> core_http_client.h:62</div></div>
 <div class="ttc" id="agroup__http__enum__types_html_ga39fad9050063a355ffd95e95381e743f"><div class="ttname"><a href="group__http__enum__types.html#ga39fad9050063a355ffd95e95381e743f">HTTPStatus_t</a></div><div class="ttdeci">HTTPStatus_t</div><div class="ttdoc">The HTTP Client library return status.</div><div class="ttdef"><b>Definition:</b> core_http_client.h:175</div></div>
 <div class="ttc" id="agroup__http__enum__types_html_gga39fad9050063a355ffd95e95381e743fa68f5addd5bf4367e177957a4c43dd4bd"><div class="ttname"><a href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743fa68f5addd5bf4367e177957a4c43dd4bd">HTTPSuccess</a></div><div class="ttdeci">@ HTTPSuccess</div><div class="ttdoc">The HTTP Client library function completed successfully.</div><div class="ttdef"><b>Definition:</b> core_http_client.h:186</div></div>
@@ -392,7 +392,7 @@ Functions</h2></td></tr>
 <div class="line">                                          <span class="keyword">sizeof</span>( <span class="stringliteral">&quot;Request-Header-Field&quot;</span> ) - 1U,</div>
 <div class="line">                                          <span class="stringliteral">&quot;Request-Header-Value&quot;</span>,</div>
 <div class="line">                                          <span class="keyword">sizeof</span>(<span class="stringliteral">&quot;Request-Header-Value&quot;</span>) - 1U );</div>
-<div class="ttc" id="acore__http__client_8c_html_a451c30912fcdf48c71f9144788250916"><div class="ttname"><a href="core__http__client_8c.html#a451c30912fcdf48c71f9144788250916">HTTPClient_AddHeader</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_AddHeader(HTTPRequestHeaders_t *pRequestHeaders, const char *pField, size_t fieldLen, const char *pValue, size_t valueLen)</div><div class="ttdoc">Add a header to the request headers stored in HTTPRequestHeaders_t.pBuffer.</div><div class="ttdef"><b>Definition:</b> core_http_client.c:1677</div></div>
+<div class="ttc" id="acore__http__client_8c_html_a451c30912fcdf48c71f9144788250916"><div class="ttname"><a href="core__http__client_8c.html#a451c30912fcdf48c71f9144788250916">HTTPClient_AddHeader</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_AddHeader(HTTPRequestHeaders_t *pRequestHeaders, const char *pField, size_t fieldLen, const char *pValue, size_t valueLen)</div><div class="ttdoc">Add a header to the request headers stored in HTTPRequestHeaders_t.pBuffer.</div><div class="ttdef"><b>Definition:</b> core_http_client.c:1642</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -441,7 +441,7 @@ Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Request for bytes 0 to 1023.</span></div>
 <div class="line">httpLibraryStatus = <a class="code hl_function" href="core__http__client_8c.html#af91c4a57452556db2be926743aa02b81">HTTPClient_AddRangeHeader</a>( &amp;requestHeaders, 0, 1023 );</div>
-<div class="ttc" id="acore__http__client_8c_html_af91c4a57452556db2be926743aa02b81"><div class="ttname"><a href="core__http__client_8c.html#af91c4a57452556db2be926743aa02b81">HTTPClient_AddRangeHeader</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_AddRangeHeader(HTTPRequestHeaders_t *pRequestHeaders, int32_t rangeStartOrlastNbytes, int32_t rangeEnd)</div><div class="ttdoc">Add the byte range request header to the request headers store in HTTPRequestHeaders_t....</div><div class="ttdef"><b>Definition:</b> core_http_client.c:1737</div></div>
+<div class="ttc" id="acore__http__client_8c_html_af91c4a57452556db2be926743aa02b81"><div class="ttname"><a href="core__http__client_8c.html#af91c4a57452556db2be926743aa02b81">HTTPClient_AddRangeHeader</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_AddRangeHeader(HTTPRequestHeaders_t *pRequestHeaders, int32_t rangeStartOrlastNbytes, int32_t rangeEnd)</div><div class="ttdoc">Add the byte range request header to the request headers store in HTTPRequestHeaders_t....</div><div class="ttdef"><b>Definition:</b> core_http_client.c:1702</div></div>
 </div><!-- fragment --></li>
 <li>Request for the last N bytes, represented by <code>rangeStartOrlastNbytes</code>. <code>rangeStartOrlastNbytes</code> should be negative and <code>rangeEnd</code> should be <a class="el" href="group__http__constants.html#ga4719dc6fd6e1b92739e1c3a88efa7046" title="Flag that represents End of File byte in the range specification of a Range Request....">HTTP_RANGE_REQUEST_END_OF_FILE</a>. Example request header line: <code>Range: bytes=-512\r\n</code> for requesting the last 512 bytes (or bytes in the range [512, 1023] for a 1KB sized file).<br  />
  <b>Example</b> <div class="fragment"><div class="line"><a class="code hl_enumeration" href="group__http__enum__types.html#ga39fad9050063a355ffd95e95381e743f">HTTPStatus_t</a> httpLibraryStatus = <a class="code hl_enumvalue" href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743fa68f5addd5bf4367e177957a4c43dd4bd">HTTPSuccess</a>;</div>
@@ -520,14 +520,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Send the HTTP headers over the transport send interface. </p>
+<p>Send the request headers in <code>pRequestHeaders</code> over the transport. </p>
+<p>If <a class="el" href="group__http__send__flags.html#ga66db30f9be610b9f1c851d9cd9cb3cff" title="Set this flag to disable automatically writing the Content-Length header to send to the server.">HTTP_SEND_DISABLE_CONTENT_LENGTH_FLAG</a> is not set in parameter <code>sendFlags</code>, then the Content-Length to be sent to the server is automatically written to <code>pRequestHeaders</code>. The Content-Length will not be written when there is no request body. If there is not enough room in the buffer to write the Content-Length then <a class="el" href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743fa33aae6d01bae2736a4a977ef04399ad4" title="The application buffer was not large enough for the HTTP request headers or the HTTP response message...">HTTPInsufficientMemory</a> is returned. Please see <a class="el" href="group__http__constants.html#ga7a6adfe8f1a63441e5838a004040588f" title="The maximum Content-Length header field and value that could be written to the request header buffer.">HTTP_MAX_CONTENT_LENGTH_HEADER_LENGTH</a> for the maximum Content-Length header field and value that could be written to the buffer.</p>
+<p>The application should close the connection with the server if any of the following errors are returned:</p><ul>
+<li><a class="el" href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743faf6441d45e373b7686e45c2d9a0d12dd3" title="A response contained the &quot;Connection: close&quot; header, but there was more data at the end of the comple...">HTTPSecurityAlertExtraneousResponseData</a></li>
+<li><a class="el" href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743faef569c934115aa105cc2cff1f72ef78b" title="The server sent a chunk header containing an invalid character.">HTTPSecurityAlertInvalidChunkHeader</a></li>
+<li><a class="el" href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743fab6ed7f7e24e250896a7b35825006d460" title="The server sent a response with an invalid character in the HTTP protocol version.">HTTPSecurityAlertInvalidProtocolVersion</a></li>
+<li><a class="el" href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743faf53f0e027fd6d66ecd796bce19711562" title="The server sent a response with an invalid character in the HTTP status-code or the HTTP status code ...">HTTPSecurityAlertInvalidStatusCode</a></li>
+<li><a class="el" href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743fa075511c32463db38713944d4e43cc01f" title="An invalid character was found in the HTTP response message or in the HTTP request header.">HTTPSecurityAlertInvalidCharacter</a></li>
+<li><a class="el" href="group__http__enum__types.html#gga39fad9050063a355ffd95e95381e743fac1b1794cf29fd99be06e0b0ed5f9213d" title="The response contains either an invalid character in the Content-Length header or a Content-Length he...">HTTPSecurityAlertInvalidContentLength</a></li>
+</ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">pTransport</td><td>Transport interface. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pTransport</td><td>Transport interface, see <a class="el" href="struct_transport_interface__t.html" title="The transport layer interface.">TransportInterface_t</a> for more information. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">getTimestampMs</td><td>Function to retrieve a timestamp in milliseconds. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pRequestHeaders</td><td>Request headers to send, it includes the buffer and length. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">reqBodyLen</td><td>The length of the request body to be sent. This is used to generated a Content-Length header. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sendFlags</td><td>Application provided flags to <a class="el" href="core__http__client_8c.html#aa33b3334128496487d820f0da7ae5601" title="Send the request headers in HTTPRequestHeaders_t.pBuffer and request body in pRequestBodyBuf over the...">HTTPClient_Send</a>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pRequestHeaders</td><td>Request configuration containing the buffer of headers to send. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reqBodyLen</td><td>The length of the request entity in bytes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sendFlags</td><td>Flags which modify the behavior of this function. Please see <a class="el" href="group__http__send__flags.html">HTTPClient_Send Flags</a> for more information.</td></tr>
   </table>
   </dd>
 </dl>
@@ -573,10 +582,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Send HTTP bytes over the transport send interface. </p>
+<p>Send the request body in <code>pRequestBodyBuf</code> over the transport. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">pTransport</td><td>Transport interface. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pTransport</td><td>Transport interface, see <a class="el" href="struct_transport_interface__t.html" title="The transport layer interface.">TransportInterface_t</a> for more information. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">getTimestampMs</td><td>Function to retrieve a timestamp in milliseconds. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pData</td><td>HTTP request data to send. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dataLen</td><td>HTTP request data length.</td></tr>
@@ -713,7 +722,7 @@ Security alerts are listed below, please see <a class="el" href="group__http__en
 <div class="line">        <span class="comment">// Handle a response Status-Code of 200 OK.</span></div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="acore__http__client_8c_html_aa33b3334128496487d820f0da7ae5601"><div class="ttname"><a href="core__http__client_8c.html#aa33b3334128496487d820f0da7ae5601">HTTPClient_Send</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_Send(const TransportInterface_t *pTransport, HTTPRequestHeaders_t *pRequestHeaders, const uint8_t *pRequestBodyBuf, size_t reqBodyBufLen, HTTPResponse_t *pResponse, uint32_t sendFlags)</div><div class="ttdoc">Send the request headers in HTTPRequestHeaders_t.pBuffer and request body in pRequestBodyBuf over the...</div><div class="ttdef"><b>Definition:</b> core_http_client.c:2182</div></div>
+<div class="ttc" id="acore__http__client_8c_html_aa33b3334128496487d820f0da7ae5601"><div class="ttname"><a href="core__http__client_8c.html#aa33b3334128496487d820f0da7ae5601">HTTPClient_Send</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_Send(const TransportInterface_t *pTransport, HTTPRequestHeaders_t *pRequestHeaders, const uint8_t *pRequestBodyBuf, size_t reqBodyBufLen, HTTPResponse_t *pResponse, uint32_t sendFlags)</div><div class="ttdoc">Send the request headers in HTTPRequestHeaders_t.pBuffer and request body in pRequestBodyBuf over the...</div><div class="ttdef"><b>Definition:</b> core_http_client.c:2147</div></div>
 <div class="ttc" id="astruct_h_t_t_p_response__t_html"><div class="ttname"><a href="struct_h_t_t_p_response__t.html">HTTPResponse_t</a></div><div class="ttdoc">Represents an HTTP response.</div><div class="ttdef"><b>Definition:</b> core_http_client.h:438</div></div>
 <div class="ttc" id="astruct_transport_interface__t_html"><div class="ttname"><a href="struct_transport_interface__t.html">TransportInterface_t</a></div><div class="ttdoc">The transport layer interface.</div><div class="ttdef"><b>Definition:</b> transport_interface.h:302</div></div>
 <div class="ttc" id="astruct_transport_interface__t_html_a01cd9935e9a5266ca196243a0054d489"><div class="ttname"><a href="struct_transport_interface__t.html#a01cd9935e9a5266ca196243a0054d489">TransportInterface_t::send</a></div><div class="ttdeci">TransportSend_t send</div><div class="ttdef"><b>Definition:</b> transport_interface.h:304</div></div>
@@ -757,9 +766,9 @@ Security alerts are listed below, please see <a class="el" href="group__http__en
 <p>Receive the HTTP response from the network and parse it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">pTransport</td><td>Transport interface. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pResponse</td><td>Response message to receive data from the network. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pRequestHeaders</td><td>Request headers for the corresponding HTTP request.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pTransport</td><td>Transport interface, see <a class="el" href="struct_transport_interface__t.html" title="The transport layer interface.">TransportInterface_t</a> for more information. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pResponse</td><td>The response message and some notable response parameters will be returned here on success. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pRequestHeaders</td><td>Request configuration containing the buffer of headers to send.</td></tr>
   </table>
   </dd>
 </dl>
@@ -846,7 +855,7 @@ Security alerts are listed below, please see <a class="el" href="group__http__en
 <div class="line">                                           <span class="keyword">sizeof</span>(<span class="stringliteral">&quot;Date&quot;</span>) - 1,</div>
 <div class="line">                                           &amp;pDateLoc,</div>
 <div class="line">                                           &amp;dateLen );</div>
-<div class="ttc" id="acore__http__client_8c_html_ac621a0756f290f1437e2c72a24e5b0f9"><div class="ttname"><a href="core__http__client_8c.html#ac621a0756f290f1437e2c72a24e5b0f9">HTTPClient_ReadHeader</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_ReadHeader(const HTTPResponse_t *pResponse, const char *pField, size_t fieldLen, const char **pValueLoc, size_t *pValueLen)</div><div class="ttdoc">Read a header from a buffer containing a complete HTTP response. This will return the location of the...</div><div class="ttdef"><b>Definition:</b> core_http_client.c:2526</div></div>
+<div class="ttc" id="acore__http__client_8c_html_ac621a0756f290f1437e2c72a24e5b0f9"><div class="ttname"><a href="core__http__client_8c.html#ac621a0756f290f1437e2c72a24e5b0f9">HTTPClient_ReadHeader</a></div><div class="ttdeci">HTTPStatus_t HTTPClient_ReadHeader(const HTTPResponse_t *pResponse, const char *pField, size_t fieldLen, const char **pValueLoc, size_t *pValueLen)</div><div class="ttdoc">Read a header from a buffer containing a complete HTTP response. This will return the location of the...</div><div class="ttdef"><b>Definition:</b> core_http_client.c:2491</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
