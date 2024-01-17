@@ -31,7 +31,7 @@
  * any configuration macro, a core_http_config.h file should be provided to
  * the HTTP Client library to override the default values defined in this file.
  * To use the custom config file, the HTTP_DO_NOT_USE_CUSTOM_CONFIG preprocessor
- * macro SHOULD NOT be set. 
+ * macro SHOULD NOT be set.
  */
 
 #ifndef CORE_HTTP_CONFIG_DEFAULTS_
