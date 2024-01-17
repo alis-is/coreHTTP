@@ -31,7 +31,7 @@
  * any configuration macro, a core_http_config.h file should be provided to
  * the HTTP Client library to override the default values defined in this file.
  * To use the custom config file, the HTTP_DO_NOT_USE_CUSTOM_CONFIG preprocessor
- * macro SHOULD NOT be set.
+ * macro SHOULD NOT be set. 
  */
 
 #ifndef CORE_HTTP_CONFIG_DEFAULTS_
@@ -39,7 +39,7 @@
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
-    extern "C" {
+extern "C" {
 #endif
 /* *INDENT-ON* */
 
@@ -54,7 +54,7 @@
  * <b>Default value:</b> `my-platform-name`
  */
 #ifndef HTTP_USER_AGENT_VALUE
-    #define HTTP_USER_AGENT_VALUE    "my-platform-name"
+#define HTTP_USER_AGENT_VALUE "my-platform-name"
 #endif
 
 /**
@@ -78,7 +78,7 @@
  * <b>Default value:</b> `10`
  */
 #ifndef HTTP_RECV_RETRY_TIMEOUT_MS
-    #define HTTP_RECV_RETRY_TIMEOUT_MS    ( 10U )
+#define HTTP_RECV_RETRY_TIMEOUT_MS (10U)
 #endif
 
 /**
@@ -101,7 +101,7 @@
  * <b>Default value:</b> `10`
  */
 #ifndef HTTP_SEND_RETRY_TIMEOUT_MS
-    #define HTTP_SEND_RETRY_TIMEOUT_MS    ( 10U )
+#define HTTP_SEND_RETRY_TIMEOUT_MS (10U)
 #endif
 
 /**
@@ -121,7 +121,7 @@
  * to the macro in the HTTP Client library on compilation.
  */
 #ifndef LogError
-    #define LogError( message )
+#define LogError(message)
 #endif
 
 /**
@@ -141,7 +141,7 @@
  * to the macro in the HTTP Client library on compilation.
  */
 #ifndef LogWarn
-    #define LogWarn( message )
+#define LogWarn(message)
 #endif
 
 /**
@@ -161,7 +161,7 @@
  * to the macro in the HTTP Client library on compilation.
  */
 #ifndef LogInfo
-    #define LogInfo( message )
+#define LogInfo(message)
 #endif
 
 /**
@@ -181,12 +181,12 @@
  * to the macro in the HTTP Client library on compilation.
  */
 #ifndef LogDebug
-    #define LogDebug( message )
+#define LogDebug(message)
 #endif
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
-    }
+}
 #endif
 /* *INDENT-ON* */
 
