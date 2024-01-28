@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('group__http__response__option__flags.h
 </div><!--header-->
 <div class="contents">
 
-<p>Flags for <a class="el" href="struct_h_t_t_p_response__t.html#a6d4b1ff385366d8185168634534557a0" title="Flags to activate other response configurations.">HTTPResponse_t.respOptionFlags</a>. These flags control configurations of response parsing.  
+<p>Flags for <a class="el" href="struct_h_t_t_p_response__t.html#a6d4b1ff385366d8185168634534557a0" title="Flags to control the behavior of response parsing.">HTTPResponse_t.respOptionFlags</a>. These flags control the behavior of response parsing.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -113,7 +113,7 @@ Macros</h2></td></tr>
 <tr class="separator:ga30522056b72a0e4beff7e09580f48730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Flags for <a class="el" href="struct_h_t_t_p_response__t.html#a6d4b1ff385366d8185168634534557a0" title="Flags to activate other response configurations.">HTTPResponse_t.respOptionFlags</a>. These flags control configurations of response parsing. </p>
+<p>Flags for <a class="el" href="struct_h_t_t_p_response__t.html#a6d4b1ff385366d8185168634534557a0" title="Flags to control the behavior of response parsing.">HTTPResponse_t.respOptionFlags</a>. These flags control the behavior of response parsing. </p>
 <p>Flags should be bitwise-ORed with each other to change the behavior of <a class="el" href="core__http__client_8h.html#abe7bfa9af16125ebf1af6f45c099dfc7" title="Receive the HTTP response from the network and parse it.">HTTPClient_ReceiveAndParseHttpResponse</a> and <a class="el" href="core__http__client_8h.html#aa33b3334128496487d820f0da7ae5601" title="Send the request headers in HTTPRequestHeaders_t.pBuffer and request body in pRequestBodyBuf over the...">HTTPClient_Send</a>. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga30522056b72a0e4beff7e09580f48730" name="ga30522056b72a0e4beff7e09580f48730"></a>
@@ -129,8 +129,8 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set this flag to indicate that the response body should not be parsed. </p>
-<p>Setting this will cause parser to stop after parsing the headers. Portion of raw body may be available in <a class="el" href="struct_h_t_t_p_response__t.html#aa712a2fd7fb57ef514d383e47c96ae26" title="The starting location of the response body in pBuffer.">HTTPResponse_t.pBody</a> and <a class="el" href="struct_h_t_t_p_response__t.html#a055ce88aa4b185d6d5d9e73048a933fe" title="Byte length of the body in pBuffer.">HTTPResponse_t.bodyLen</a>.</p>
-<p>This flag is valid only for <a class="el" href="struct_h_t_t_p_response__t.html" title="Represents an HTTP response.">HTTPResponse_t</a> respOptionFlags parameter. </p>
+<p>Setting this will cause parser to stop after parsing the headers. Portion of the raw body may be available in <a class="el" href="struct_h_t_t_p_response__t.html#aa712a2fd7fb57ef514d383e47c96ae26" title="The starting location of the response body in pBuffer.">HTTPResponse_t.pBody</a> and <a class="el" href="struct_h_t_t_p_response__t.html#a055ce88aa4b185d6d5d9e73048a933fe" title="Byte length of the body in pBuffer.">HTTPResponse_t.bodyLen</a>.</p>
+<p>This flag is valid only for <a class="el" href="struct_h_t_t_p_response__t.html#a6d4b1ff385366d8185168634534557a0" title="Flags to control the behavior of response parsing.">HTTPResponse_t.respOptionFlags</a>. </p>
 
 </div>
 </div>
